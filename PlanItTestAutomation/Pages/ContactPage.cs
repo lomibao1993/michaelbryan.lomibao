@@ -53,6 +53,7 @@ namespace PlanItTestAutomation.Pages
 
         public bool VerifySucessfulMessageDisplayed()
         {
+            FluentWait().Until(a => successAlertMessage());
             return successAlertMessage().Displayed;
         }
 
