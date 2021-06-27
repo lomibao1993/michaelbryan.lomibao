@@ -26,7 +26,6 @@ namespace PlanItTestAutomation.Pages
             submitButton().Click();
         }
 
-
         public bool VerifyErrorMessageDisplay()
         {
             bool isErrAlert = alertErrorMessage() != null;

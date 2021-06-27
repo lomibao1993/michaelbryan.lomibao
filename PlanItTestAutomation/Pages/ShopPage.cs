@@ -16,7 +16,6 @@ namespace PlanItTestAutomation.Pages
     {
         public void SelectItems(Enum item , int count)
         {
-            var products = new List<CartDetails>();
             var itemList = productItemsListWebElement();
             foreach (var product in itemList)
             {
