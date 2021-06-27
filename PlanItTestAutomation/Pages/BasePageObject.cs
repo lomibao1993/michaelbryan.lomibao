@@ -12,7 +12,7 @@ namespace PlanItTestAutomation.Pages
     {
         protected IWebDriver Driver => WebDriverManager.WebDriver;
 
-        protected virtual DefaultWait<IWebDriver> FluentWait()
+        public virtual DefaultWait<IWebDriver> FluentWait()
         {
             DefaultWait<IWebDriver> fluentWait = new DefaultWait<IWebDriver>(Driver);
             fluentWait.Timeout = TimeSpan.FromSeconds(15);
