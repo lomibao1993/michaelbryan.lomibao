@@ -11,7 +11,7 @@ What approaches could you used to reduce overall execution time?
 * Merge all test cases into one test automation script to reduce run time.
 
 How will your framework cater for this?
-* for additional toys, I'll be just adding items into Toys ENUM (ProductEnum.class) that i created then add some test cases/script to test additional toys.
+* for additional toys, I'll be just adding items into Toys ENUM (ProductEnum.class). Add test cases/script to test additional toys.
 * for expanding growth of jupiter toy, I'll be adding new ENUMS for Books, tech, and modern art to cater the additional products. 
 
 3. Describe when to use a BDD approach to automation and when NOT to use BDD 
