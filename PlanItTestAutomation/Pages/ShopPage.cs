@@ -9,19 +9,11 @@ namespace PlanItTestAutomation.Pages
 {
     public interface IShopPage
     {
-        ICartPage GotoCartPage();
         void SelectItems(Enum item, int quantity);
     }
 
     internal class ShopPage : BasePageObject, IShopPage
     {
-
-        public ICartPage GotoCartPage()
-        {
-            cartLinkElement().Click();
-            return new CartPage();
-        }
-
         public void SelectItems(Enum item , int count)
         {
             var products = new List<CartDetails>();
@@ -46,11 +38,6 @@ namespace PlanItTestAutomation.Pages
         {
             var items = Driver.FindElements(By.CssSelector(".product.ng-scope"));
             return items;
-        }
-
-        private IWebElement cartLinkElement()
-        {
-            return Driver.FindElement(By.CssSelector("a[href='#/cart']"));
         }
     }
 }

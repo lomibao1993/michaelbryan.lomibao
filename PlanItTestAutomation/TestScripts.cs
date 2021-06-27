@@ -42,7 +42,7 @@ namespace PlanItTestAutomation
             shopPage.SelectItems(Toys.FluffyBunny, 5);
             shopPage.SelectItems(Toys.StuffedFrog, 2);
             shopPage.SelectItems(Toys.ValentineBear, 3);
-            ICartPage cartPage = shopPage.GotoCartPage();
+            ICartPage cartPage = homePage.GotoCartPage();
             Assert.IsTrue(cartPage.ValidateAddedItemsIsDisplayed(Toys.FunnyCow, "$10.99", "2"), Toys.FunnyCow + " has incorrect cart details");
             Assert.IsTrue(cartPage.ValidateAddedItemsIsDisplayed(Toys.FluffyBunny, "$9.99", "5"), Toys.FluffyBunny + " has incorrect cart details");
             Assert.IsTrue(cartPage.ValidateAddedItemsIsDisplayed(Toys.StuffedFrog, "$10.99", "2"), Toys.StuffedFrog + " has incorrect cart details ");

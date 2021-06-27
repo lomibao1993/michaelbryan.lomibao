@@ -11,6 +11,7 @@ namespace PlanItTestAutomation.Pages
     public interface IHomePage {
         IContactPage GotoContactPage();
         IShopPage GotoShopPage();
+        ICartPage GotoCartPage();
     }
 
     internal class HomePage : BasePageObject , IHomePage
@@ -32,6 +33,12 @@ namespace PlanItTestAutomation.Pages
             return new ShopPage();
         }
 
+        public ICartPage GotoCartPage()
+        {
+            cartLinkElement().Click();
+            return new CartPage();
+        }
+
         //WebElements
         private IWebElement contactLinkElement()
         {
@@ -41,6 +48,11 @@ namespace PlanItTestAutomation.Pages
         private IWebElement shopLinkElement()
         {
             return Driver.FindElement(By.CssSelector("#nav-shop"));
+        }
+
+        private IWebElement cartLinkElement()
+        {
+            return Driver.FindElement(By.CssSelector("a[href='#/cart']"));
         }
     }
 }

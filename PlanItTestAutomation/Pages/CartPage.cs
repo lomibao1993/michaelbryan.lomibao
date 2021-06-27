@@ -20,7 +20,7 @@ namespace PlanItTestAutomation.Pages
         {
             var addedItems = GetCartItems();
             var rightItem = addedItems.FirstOrDefault(x => x.ProductName.Replace(" ", String.Empty).ToLower() == item.ToString().ToLower());
-            var calculatedSubTotal = float.Parse(rightItem.ProductPrice.ToString().Replace("$", "")) * int.Parse(rightItem.ProductQuantity.ToString());
+            var calculatedSubTotal = float.Parse(rightItem.ProductPrice.ToString().Replace("$", String.Empty)) * int.Parse(rightItem.ProductQuantity.ToString());
             
             return rightItem.ProductName.Replace(" ", String.Empty).ToLower() == item.ToString().ToLower() && rightItem.ProductSubTotal == calculatedSubTotal.ToString() && rightItem.ProductPrice == price && rightItem.ProductQuantity == count;
         }
@@ -43,10 +43,10 @@ namespace PlanItTestAutomation.Pages
             var addedItemList = cartItemsListWebElement();
             foreach (var addedItem in addedItemList)
             {
-                var productName = addedItem.FindElement(By.CssSelector("td:nth-last-child(5)")).Text.Replace(" ", "");
+                var productName = addedItem.FindElement(By.CssSelector("td:nth-last-child(5)")).Text.Replace(" ", String.Empty);
                 var price = addedItem.FindElement(By.CssSelector("td:nth-last-child(4)")).Text;
                 var quantity = addedItem.FindElement(By.CssSelector("td:nth-last-child(3) > input")).GetAttribute("value");
-                var subtotal = addedItem.FindElement(By.CssSelector("td:nth-last-child(2)")).Text.Replace("$", "");
+                var subtotal = addedItem.FindElement(By.CssSelector("td:nth-last-child(2)")).Text.Replace("$", String.Empty);
                 addedItems.Add(new CartDetails()
                 {
                     ProductName = productName,
@@ -58,12 +58,9 @@ namespace PlanItTestAutomation.Pages
             return addedItems;
         }
 
-
-
         private IReadOnlyList<IWebElement> cartItemsListWebElement()
         {
-            var list = Driver.FindElements(By.CssSelector(".cart-item.ng-scope"));
-            return list;
+            return Driver.FindElements(By.CssSelector(".cart-item.ng-scope"));
         }
 
         private IWebElement cartTotalPriceElement()

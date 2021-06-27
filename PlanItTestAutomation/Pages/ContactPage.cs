@@ -71,7 +71,7 @@ namespace PlanItTestAutomation.Pages
         private IWebElement forenameErrorMessage()
         {
             var element = Driver.FindElements(By.CssSelector("#forename-err"));
-            return element.Count>0 ? element[0]: null;
+            return element.Count > 0 ? element[0]: null;
         }
 
         private IWebElement emailErrorMessage()
